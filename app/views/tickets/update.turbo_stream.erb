@@ -1,0 +1,5 @@
+<%= turbo_stream.after "ticket_user_id" do %>
+  <span id="saved">Saved</span>
+<% end %>
+
+<%= turbo_stream_action_tag :remove_later, target: "saved", after: "2000" %>

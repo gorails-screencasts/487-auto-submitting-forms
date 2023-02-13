@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to tickets_path, class: 'btn btn-default' do %>
+    All Tickets
+  <% end %>
+  <%= link_to edit_ticket_path(@ticket), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show ticket</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @ticket.title %></dd>
+  <dt>User:</dt>
+  <dd>
+    <%= form_with model: @ticket do |form| %>
+      <%= form.collection_select :user_id, User.all, :id, :name, {include_blank: "None"}, {onchange: "this.form.requestSubmit()"} %>
+    <% end %>
+  </dd>
+</dl>
